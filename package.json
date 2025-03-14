@@ -1,16 +1,14 @@
 {
   "name": "n8n-nodes-tessai",
   "version": "0.0.1",
-  "description": "An n8n node for Tess AI integration with full API support, based on official documentation",
+  "description": "An n8n node for Tess AI integration with full API support.",
   "main": "nodes/tessai/TessAi.node.js",
   "keywords": [
     "n8n",
     "node",
     "tess ai",
-    "api",
-    "agents",
-    "files",
-    "webhooks"
+    "integration",
+    "api"
   ],
   "author": "Polli AI",
   "license": "MIT",
@@ -19,14 +17,19 @@
       "nodes/tessai/TessAi.node.js"
     ]
   },
-  "devDependencies": {
-    "n8n-node-dev": "latest"
-  },
   "dependencies": {
     "axios": "^1.6.0",
-    "form-data": "^4.0.0"
+    "form-data": "^4.0.0",
+    "n8n-workflow": "^1.7.0"  // Adicionado como dependência para garantir que esteja declarado
   },
   "scripts": {
-    "dev": "node_modules/.bin/n8n-node-dev nodes/tessai/TessAi.node.js"
-  }
+    "dev": "node_modules/.bin/n8n-node-dev nodes/tessai/TessAi.node.js",
+    "build": "n8n-node-dev build",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "nodes",
+    "tessai.svg",
+    "package.json"
+  ]
 }
